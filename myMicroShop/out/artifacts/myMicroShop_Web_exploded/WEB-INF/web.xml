@@ -37,6 +37,7 @@
     </servlet>
     <servlet-mapping>
         <servlet-name>springmvc</servlet-name>
+        <!--/会将所有的静态资源都拦截,意味着 图片 css样式 js文件都会被拦截-->
         <url-pattern>/</url-pattern>
     </servlet-mapping>
 

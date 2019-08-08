@@ -22,7 +22,7 @@
 
     <mvc:annotation-driven />
 
-    <!--开通静态资源的访问-->
+    <!--开通静态资源的访问 使用默认的servlet来接收静态资源-->
     <mvc:default-servlet-handler />
 
     <!-- 视图定位 -->
