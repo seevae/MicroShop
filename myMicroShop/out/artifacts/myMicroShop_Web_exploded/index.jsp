@@ -6,12 +6,8 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<html>
-<head>
-    <title>Title</title>
-</head>
-<body>
-欢迎来到首页
-<a href="${pageContext.request.contextPath}/getUserMsg">获取用户信息</a>
-</body>
-</html>
+
+<%--引入c标签--%>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%--重定向--%>
+<c:redirect url="article/index"></c:redirect>

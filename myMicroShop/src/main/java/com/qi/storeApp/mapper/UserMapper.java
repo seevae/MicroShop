@@ -1,16 +1,20 @@
-package com.qi.storeApp.mapper;/*
-    name zhang;
-    */
+package com.qi.storeApp.mapper;
 
-
-import com.qi.storeApp.po.User;
+import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Select;
+import org.apache.ibatis.annotations.Update;
 
-import java.util.List;
 
+/**
+ * UserMapper 数据访问类
+ * @author CHUNLONG.LUO
+ * @email 584614151@qq.com
+ * @date 2019-05-05 21:31:40
+ * @version 1.0
+ */
 public interface UserMapper {
 
-    @Select("select * from user")
-    public List<User> findAllUser();
+
+
 
 }

@@ -9,9 +9,9 @@
         </element>
         <element id="directory" name="lib">
           <element id="library" level="project" name="Maven: aopalliance:aopalliance:1.0" />
-          <element id="library" level="module" name="Maven: com.alibaba:tools:1.8.0" module-name="myMicroShop" />
           <element id="library" level="project" name="Maven: com.alibaba:druid:1.0.18" />
           <element id="library" level="module" name="Maven: com.alibaba:jconsole:1.8.0" module-name="myMicroShop" />
+          <element id="library" level="module" name="Maven: com.alibaba:tools:1.8.0" module-name="myMicroShop" />
           <element id="library" level="project" name="Maven: com.github.jsqlparser:jsqlparser:1.0" />
           <element id="library" level="project" name="Maven: com.github.pagehelper:pagehelper:5.1.2-beta" />
           <element id="library" level="project" name="Maven: commons-fileupload:commons-fileupload:1.2.1" />
