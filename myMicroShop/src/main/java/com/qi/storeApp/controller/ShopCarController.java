@@ -36,6 +36,16 @@ public class ShopCarController {
         List<Shopcar> shopcars = shopCarService.getAllShopCarByUserId(session);
         model.addAttribute("shopCars",shopcars);
 
+
+        //遍历集合,计算购物车中商品的总金额
+        double totalPrice = 0.0;
+
+        for(Shopcar shopcar:shopcars){
+            totalPrice += shopcar.getArticle().getDiscountPrice()*shopcar.getBuynum();
+        }
+
+        model.addAttribute("totalPrice",totalPrice);
+
         return  "shopCar";
     }
 }
