@@ -28,4 +28,6 @@ public interface ShopcarMapper {
 
     @Insert("insert into ec_shopcar(buynum,user_id,article_id) values (#{buynum},#{userId},#{id})")
     void addShopCar(@Param("userId") int userId, @Param("id") int id, @Param("buynum") int number);
+
+    List<Shopcar> getAllShopCarByUserId(int userId);
 }

@@ -5,16 +5,17 @@ package com.qi.storeApp.service.Impl;/*
 import com.qi.storeApp.mapper.ShopcarMapper;
 import com.qi.storeApp.po.Shopcar;
 import com.qi.storeApp.po.User;
-import com.qi.storeApp.service.ShopServiceI;
+import com.qi.storeApp.service.ShopCarServiceI;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import javax.servlet.http.HttpSession;
+import java.util.List;
 
 @Service("ShopCarServiceI")
 @Transactional
-public class ShopServiceImpl implements ShopServiceI {
+public class ShopCarServiceImpl implements ShopCarServiceI {
 
     @Autowired
     private ShopcarMapper shopcarMapper;
@@ -37,5 +38,19 @@ public class ShopServiceImpl implements ShopServiceI {
             shopcarMapper.addShopCar(userId,id,number);
         }
 
+    }
+
+    public List<Shopcar> getAllShopCarByUserId(HttpSession session) {
+        //从session中获取用户信息
+        User user = (User)session.getAttribute("session_user");
+
+        //获取用户的id
+        int userId = user.getId();
+
+        //获取用户的购物详情信息
+        List<Shopcar> shopcars = shopcarMapper.getAllShopCarByUserId(userId);
+
+
+        return shopcars;
     }
 }

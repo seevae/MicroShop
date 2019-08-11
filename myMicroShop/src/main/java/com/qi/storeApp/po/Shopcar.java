@@ -12,7 +12,6 @@ public class Shopcar implements java.io.Serializable{
 	
 	private Article article;
 
-
 	public void setBuynum(int buynum){
 		this.buynum = buynum;
 	}

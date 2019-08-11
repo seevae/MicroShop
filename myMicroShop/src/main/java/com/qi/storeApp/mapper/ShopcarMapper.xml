@@ -14,5 +14,16 @@
     <!--<resultMap type="com.longIt.shoppingApp.bean.Shopcar" id="shopCarMapper">-->
          <!--<association property="article" column="article_id" select="com.longIt.shoppingApp.mapper.ArticleMapper.getArticleById"></association>-->
     <!--</resultMap>-->
+	<!--获取用户的购物详细信息-->
+	<select id="getAllShopCarByUserId" resultMap="shopCarMapper">
+		select * from ec_shopcar where user_id = #{userId}
+	</select>
+
+	<!--关联查询-->
+	<resultMap id="shopCarMapper" type="com.qi.storeApp.po.Shopcar">
+		<association property="article" column="article_id" select="com.qi.storeApp.mapper.ArticleMapper.getArticleById">
+
+		</association>
+	</resultMap>
 
 </mapper>
