@@ -58,4 +58,13 @@ public class ShopCarController {
         return "redirect:/shopCar/showShopCar.action";
     }
 
+    //删除购物车中商品的信息
+    @RequestMapping("/deleteShopCar.action")
+    public String deleteShopCar(HttpSession session,@Param("id") int id){
+
+        //删除购物车中商品的信息
+        shopCarService.deleteShopcar(session,id);
+
+        return "redirect:/shopCar/showShopCar.action";
+    }
 }

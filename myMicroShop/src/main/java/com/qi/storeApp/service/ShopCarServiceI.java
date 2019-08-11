@@ -16,4 +16,7 @@ public interface ShopCarServiceI {
 
 //    更新购物车中商品的购买数量
     void updateShopcar(HttpSession session, int id, int number);
+
+    //删除购物车中商品的信息
+    void deleteShopcar(HttpSession session, int id);
 }

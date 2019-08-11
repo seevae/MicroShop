@@ -33,4 +33,7 @@ public interface ShopcarMapper {
 
     @Update("update ec_shopcar set buynum = #{buynum} where user_id = #{userId} and article_id=#{id}")
     void updateShopcar(@Param("userId")int userId, @Param("id") int id,@Param("buynum")int buyNum);
+
+    @Delete("delete from ec_shopcar where user_id=#{userId} and article_id=#{id}")
+    void deleteShopcar(@Param("userId")int userId, @Param("id")int id);
 }

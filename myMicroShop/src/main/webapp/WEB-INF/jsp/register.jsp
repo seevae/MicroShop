@@ -24,7 +24,7 @@
             	//开始发送异步请求校验登录名是否存在
             	$.ajax({
              	   type: "POST",//请求的方式
-             	   url: "${pageContext.request.contextPath}/user/validLoginName.do",//请求的地址
+             	   url: "${pageContext.request.contextPath}/user/validLoginName",//请求的地址
              	   data: "loginName="+obj.value,//需要传递至后台的参数
              	   success: function(msg){ //如果后台正常处理数据，没有出现异常则会自动回调 success中的函数，后台会将消息赋给  msg 
              	      

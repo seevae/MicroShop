@@ -65,4 +65,12 @@ public class ShopCarServiceImpl implements ShopCarServiceI {
 
         shopcarMapper.updateShopcar(userId,id,number);
     }
+
+    //删除购物车中商品的信息
+    public void deleteShopcar(HttpSession session, int id) {
+        User user  = (User)session.getAttribute("session_user");
+        int userId = user.getId();
+        shopcarMapper.deleteShopcar(userId,id);
+
+    }
 }

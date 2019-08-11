@@ -37,7 +37,7 @@
 							<li><a href="#"> <span style='color: red;'></span>
 							</a></li>
 							<li><a href="${ctx}/login">登录</a></li>
-							<li><a href="${ctx}/register.do">免费注册</a></li>
+							<li><a href="${ctx}/register">免费注册</a></li>
 						</c:otherwise>
 					</c:choose>
 				</ul>

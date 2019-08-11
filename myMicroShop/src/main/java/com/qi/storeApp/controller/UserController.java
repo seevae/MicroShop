@@ -4,7 +4,10 @@ import com.qi.storeApp.service.UserServiceI;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
+
 import javax.servlet.http.HttpSession;
 
 @Controller
@@ -39,4 +42,27 @@ public class UserController {
         return "redirect:/article/index";
     }
 
+    //异步校验账号是否存在
+    @ResponseBody
+    @RequestMapping(value = "/validLoginName",produces = {"allpication/text;charset=utf-8"})
+    public String validLoginName(String loginName){
+       //异步校验账号是否存在
+        String result  = userService.validLoginName(loginName);
+        return result;
+    }
+
+
+    //用户注册
+    @RequestMapping(value = "/userRegister")
+    public String userRegister(Model model,User user){
+        try{
+            userService.saveUser(user);
+            model.addAttribute("message","注册成功");
+        }catch (Exception e){
+            e.printStackTrace();
+            model.addAttribute("message","注册失败");
+        }
+        //返回注册页面
+        return "register";
+    }
 }

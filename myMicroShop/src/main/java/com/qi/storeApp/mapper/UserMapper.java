@@ -20,4 +20,9 @@ public interface UserMapper {
     @Select("select * from ec_user where login_name = #{loginName} and password = #{password}")
     User findUserByNameAndPass(User user);
 
+    @Select("select * from ec_user where login_name = #{loginName}")
+    User validLoginName(String loginName);
+
+    @Insert("insert into ec_user(login_name,password,name,sex,email,phone,address,create_date,active) values(#{loginName},#{password},#{name},#{sex},#{email},#{phone},#{address},#{createDate},#{active})")
+    void saveUser(User user);
 }
