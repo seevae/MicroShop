@@ -48,4 +48,14 @@ public class ShopCarController {
 
         return  "shopCar";
     }
+
+    //更新购物车中商品信息
+    @RequestMapping("/updateShopcar.action")
+    public String updateShopCar(HttpSession session,@Param("id") int id,@Param("number") int number){
+
+        //更新购物车购买数量
+        shopCarService.updateShopcar(session,id,number);
+        return "redirect:/shopCar/showShopCar.action";
+    }
+
 }

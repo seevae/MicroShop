@@ -13,4 +13,7 @@ public interface ShopCarServiceI {
 
 
     List<Shopcar> getAllShopCarByUserId(HttpSession session);
+
+//    更新购物车中商品的购买数量
+    void updateShopcar(HttpSession session, int id, int number);
 }

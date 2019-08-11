@@ -111,11 +111,6 @@ function addFun(articleId){
 		 }
 		
 	 }
-	 
-	 
-	
-	 
-	 
 
  }
  

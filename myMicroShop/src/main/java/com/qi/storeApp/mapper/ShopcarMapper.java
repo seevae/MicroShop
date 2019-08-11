@@ -30,4 +30,7 @@ public interface ShopcarMapper {
     void addShopCar(@Param("userId") int userId, @Param("id") int id, @Param("buynum") int number);
 
     List<Shopcar> getAllShopCarByUserId(int userId);
+
+    @Update("update ec_shopcar set buynum = #{buynum} where user_id = #{userId} and article_id=#{id}")
+    void updateShopcar(@Param("userId")int userId, @Param("id") int id,@Param("buynum")int buyNum);
 }

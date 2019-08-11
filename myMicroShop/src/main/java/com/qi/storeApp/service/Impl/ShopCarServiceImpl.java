@@ -53,4 +53,16 @@ public class ShopCarServiceImpl implements ShopCarServiceI {
 
         return shopcars;
     }
+
+
+    //    更新购物车中商品的购买数量
+    public void updateShopcar(HttpSession session, int id, int number) {
+        //从session中获取用户信息
+        User user = (User)session.getAttribute("session_user");
+
+        //获取用户的id
+        int userId = user.getId();
+
+        shopcarMapper.updateShopcar(userId,id,number);
+    }
 }
