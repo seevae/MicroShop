@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+	PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.qi.storeApp.mapper.ArticleMapper">
+
+    <!--根据商品类型获取商品的信息-->
+      <select id="findAllArticle" resultType="com.qi.storeApp.po.Article">
+          select * from ec_article
+          <where>
+              <if test="typeCode != null">
+                  type_code like #{typeCode}
+              </if>
+              <if test="keyword != null">
+                  and title like #{keyword}
+              </if>
+          </where>
+      </select>
+
+</mapper>

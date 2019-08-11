@@ -1,8 +1,10 @@
 package com.qi.storeApp.mapper;
 
+import com.qi.storeApp.po.User;
 import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Select;
 import org.apache.ibatis.annotations.Update;
+import org.springframework.stereotype.Service;
 
 
 /**
@@ -14,7 +16,8 @@ import org.apache.ibatis.annotations.Update;
  */
 public interface UserMapper {
 
-
-
+    //根据用户输入的账号以及密码获取用户的信息
+    @Select("select * from ec_user where login_name = #{loginName} and password = #{password}")
+    User findUserByNameAndPass(User user);
 
 }

@@ -12,13 +12,18 @@
         http://www.springframework.org/schema/context
         http://www.springframework.org/schema/context/spring-context-4.2.xsd">
 
-    <!--启动注解识别-->
-    <context:annotation-config/>
 
-    <context:component-scan base-package="com.qi.storeApp.controller">
-        <context:include-filter type="annotation"
-                                expression="org.springframework.stereotype.Controller"/>
-    </context:component-scan>
+    <!--&lt;!&ndash;启动注解识别&ndash;&gt;-->
+
+    <!--<context:annotation-config/>-->
+
+    <!--<context:component-scan base-package="com.qi.storeApp.controller">-->
+        <!--<context:include-filter type="annotation"-->
+                                <!--expression="org.springframework.stereotype.Controller"/>-->
+    <!--</context:component-scan>-->
+
+    <context:component-scan base-package="com.qi.storeApp.controller"/><!-- a -->
+
 
     <mvc:annotation-driven />
 
@@ -33,5 +38,21 @@
         <property name="prefix" value="/WEB-INF/jsp/" />
         <property name="suffix" value=".jsp" />
     </bean>
+
+    <!--声明拦截器-->
+    <mvc:interceptors>
+        <mvc:interceptor>
+            <!--拦截地址-->
+            <mvc:mapping path="/*.action"/>
+            <mvc:mapping path="/*/*.action"/>
+            <bean class="com.qi.storeApp.filter.LoginFilter"></bean>
+        </mvc:interceptor>
+    </mvc:interceptors>
+
+
+    <!--指定视图与控制层的映射关系,
+    意味着用户发送http://localhost:8080/login就会直接跳到/WEB-INF/jsp/login.jsp页面下-->
+    <mvc:view-controller path="/login"/>
+
 
 </beans>
