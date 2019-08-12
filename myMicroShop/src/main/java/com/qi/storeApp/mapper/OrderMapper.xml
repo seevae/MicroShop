@@ -4,28 +4,27 @@
 	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <mapper namespace="com.qi.storeApp.mapper.OrderMapper">
+	<!--useGeneratedKeys : 告诉mybatis我们需要获取主键值
+		keyColumn: 说明哪一列是主键
+		keyProperty: 将查询到的主键值封装到哪一个属性中(会自动把值封装到传入的order对象中)
+	-->
+	<insert id="saveOrder" useGeneratedKeys="true" keyColumn="id" keyProperty="id">
+		insert into ec_order(order_code,create_date,amount,user_id) values(#{orderCode},#{createDate},#{amount},#{userId})
+	</insert>
 
-    <!--&lt;!&ndash; -->
-        <!--useGeneratedKeys="true":告诉mybatis我们需要获取主键值-->
-        <!--keyColumn="id"：告诉mybatis框架，哪一列是主键-->
-        <!--keyProperty="id"：告诉mybaits框架，将查询到的主键值封装到哪一个属性中-->
-     <!--&ndash;&gt;-->
-    <!--<insert id="saveOrder" useGeneratedKeys="true" keyColumn="id" keyProperty="id">-->
-       <!--insert into ec_order(order_code,create_date,amount,user_id)  values(#{orderCode},#{createDate},#{amount},#{userId})-->
-    <!--</insert>-->
-    <!---->
-    <!---->
-    <!--&lt;!&ndash; 根据用户id获取订单信息 &ndash;&gt;-->
-    <!--<select id="getOrdersByUserId"  resultMap="orderMapping">-->
-        <!--select * from ec_order where user_id = #{id}-->
-    <!--</select>-->
-    <!---->
-    <!--<resultMap type="com.longIt.shoppingApp.bean.Order" id="orderMapping">-->
-       <!--<result column="order_code" property="orderCode"/>-->
-       <!--<result column="create_date" property="createDate"/>-->
-       <!--<result column="send_date" property="sendDate"/>-->
-    <!---->
-       <!--&lt;!&ndash; 根据订单id进行关联查询  获取对应的订单详情信息 &ndash;&gt;-->
-       <!--<collection property="items"  column="id" select="com.longIt.shoppingApp.mapper.OrderItemMapper.getOrderItemByOrderId"></collection>-->
-    <!--</resultMap>-->
+	<!--根据用户id获取订单信息-->
+	<select id="getOrderByUserId" resultMap="orderMapping">
+		select * from ec_order where user_id = #{id}
+	</select>
+
+	<resultMap id="orderMapping" type="com.qi.storeApp.po.Order">
+		<result column="order-code" property="orderCode"/>
+		<result column="create_date" property="createDate"/>
+		<result column="send_date" property="sendDate"/>
+		<!--根据订单id进行关联查询,获取对应的订单详情信息-->
+		<collection property="items" column="id" select="com.qi.storeApp.mapper.OrderItemMapper.getOrderItemByOrderId">
+
+		</collection>
+	</resultMap>
+
 </mapper>

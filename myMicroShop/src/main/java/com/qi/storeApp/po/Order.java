@@ -19,7 +19,6 @@ public class Order implements java.io.Serializable{
 	//定义集合用于封装订单详情信息
 	private List<OrderItem> items = new ArrayList<OrderItem>();
 
-	/** setter and getter method */
 	public void setId(int id){
 		this.id = id;
 	}

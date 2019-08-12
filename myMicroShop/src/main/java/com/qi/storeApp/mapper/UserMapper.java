@@ -16,7 +16,7 @@ import org.springframework.stereotype.Service;
  */
 public interface UserMapper {
 
-    //根据用户输入的账号以及密码获取用户的信息
+
     @Select("select * from ec_user where login_name = #{loginName} and password = #{password}")
     User findUserByNameAndPass(User user);
 
@@ -25,4 +25,11 @@ public interface UserMapper {
 
     @Insert("insert into ec_user(login_name,password,name,sex,email,phone,address,create_date,active) values(#{loginName},#{password},#{name},#{sex},#{email},#{phone},#{address},#{createDate},#{active})")
     void saveUser(User user);
+
+    @Update("update ec_user set disabled=1,active = '' where active=#{activeCode}")
+    void active(String activeCode);
+
+    //查找一下激活码是否正确
+    @Select("select * from ec_user where active = #{activeCode}")
+    User getUserByActive(String activeCode);
 }

@@ -5,13 +5,14 @@
 
 <mapper namespace="com.qi.storeApp.mapper.OrderItemMapper">
 
-    <!--<select id="getOrderItemByOrderId" resultMap="orderItemMapper">-->
-       <!--select * from ec_order_item where order_id = #{orderId}-->
-    <!--</select>-->
-   <!---->
-     <!--<resultMap type="com.qi.storeApp.po.OrderItem" id="orderItemMapper">-->
-        <!---->
-         <!--<result column="order_num" property="orderNum"/>-->
-         <!--<association property="article" column="article_id" select="com.longIt.shoppingApp.mapper.ArticleMapper.getArticleById"></association>-->
-     <!--</resultMap>-->
+    <select id="getOrderItemByOrderId" resultMap="orderItemMapper">
+		select * from ec_order_item where order_id=#{orderId}
+	</select>
+
+	<resultMap id="orderItemMapper" type="com.qi.storeApp.po.OrderItem">
+		<result column="order_num" property="orderNum"/>
+		<association property="article" column="article_id" select="com.qi.storeApp.mapper.ArticleMapper.getArticleById">
+
+		</association>
+	</resultMap>
 </mapper>

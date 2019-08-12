@@ -1,6 +1,4 @@
-package com.qi.storeApp.controller;/*
-    name zhang;
-    */
+package com.qi.storeApp.controller;
 
 import com.qi.storeApp.po.Article;
 import com.qi.storeApp.po.ArticleType;

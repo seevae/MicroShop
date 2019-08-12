@@ -4,6 +4,8 @@ package com.qi.storeApp.service;/*
 
 import com.qi.storeApp.po.User;
 
+import javax.mail.MessagingException;
+
 public interface UserServiceI {
 
     //根据用户输入的账号以及密码获取用户的信息
@@ -13,5 +15,8 @@ public interface UserServiceI {
     String validLoginName(String loginName);
 
     //注册用户
-    void saveUser(User user);
+    void saveUser(User user) throws MessagingException;
+
+    //用户信息激活
+    String active(String activeCode);
 }

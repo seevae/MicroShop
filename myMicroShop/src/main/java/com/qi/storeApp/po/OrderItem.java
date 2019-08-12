@@ -10,7 +10,6 @@ public class OrderItem implements java.io.Serializable{
 	
 	private Article article;
 
-	/** setter and getter method */
 	public void setOrderId(int orderId){
 		this.orderId = orderId;
 	}

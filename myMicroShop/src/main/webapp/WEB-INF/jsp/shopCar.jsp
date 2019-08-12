@@ -19,7 +19,6 @@
 
 	
 
-
 <script type="text/javascript">
 
 // 为 ’-‘ 半丁事件，用户点击后，将购买的数量减一，但是必须保证购买的数量为大于等于1的正整数 
@@ -142,8 +141,6 @@ function addFun(articleId){
 	 
 	 //将隐藏输入框中之前的信息 和  现在用户选中的新的商品信息 进行拼接
 	 orderInfo.value = orderInfo.value +"#"+info;
-	 
-	 
  }
  
  

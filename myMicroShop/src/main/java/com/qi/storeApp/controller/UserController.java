@@ -22,9 +22,12 @@ public class UserController {
     public String userLogin(User user, Model model, HttpSession session){
         //根据用户输入的账号以及密码获取用户的信息
         User u = userService.findUserByNameAndPass(user);
-        if(u == null){
+        if(u == null ){
             model.addAttribute("error_message","您输入的账号或密码不正确,请核实!");
             //跳转至登陆页面 /WEB-INF/jsp/login.jsp
+            return "login";
+        }else if(u.getDisabled().equals("0")){
+            model.addAttribute("error_message","您尚未激活邮箱,请确认激活");
             return "login";
         }else{
             //将用户信息存放在session中,直接跳转到首页
@@ -65,4 +68,19 @@ public class UserController {
         //返回注册页面
         return "register";
     }
+
+    //用户信息激活
+    @RequestMapping(value = "/active")
+    public String active(Model model,String activeCode){
+       try{
+           String message = userService.active(activeCode);
+
+           model.addAttribute("message",!message.equals("")?message:"激活成功!");
+       }catch (Exception e){
+           e.printStackTrace();
+           model.addAttribute("message","激活失败");
+       }
+        return "login";
+    }
+
 }
