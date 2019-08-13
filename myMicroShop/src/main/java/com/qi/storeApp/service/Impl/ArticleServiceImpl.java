@@ -7,6 +7,7 @@ import com.qi.storeApp.mapper.ArticleTypeMapper;
 import com.qi.storeApp.po.Article;
 import com.qi.storeApp.po.ArticleType;
 import com.qi.storeApp.service.ArticleServiceI;
+import com.qi.storeApp.until.PageModel;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -30,8 +31,8 @@ public class ArticleServiceImpl implements ArticleServiceI {
     }
 
     //根据商品类型获取商品信息
-    public List<Article> findAllArticle(String typeCode,String keyword) {
-        List<Article> articles = articleMapper.findAllArticle(typeCode,keyword);
+    public List<Article> findAllArticle(String typeCode, String keyword, PageModel pageModel) {
+        List<Article> articles = articleMapper.findAllArticle(typeCode,keyword,pageModel);
 
         return articles;
     }
@@ -46,5 +47,11 @@ public class ArticleServiceImpl implements ArticleServiceI {
     public Article getArticleById(Integer id) {
         Article article = articleMapper.getArticleById(id);
         return article;
+    }
+
+    //查询商品总记录数
+    public int findTotalNum(String typeCode, String keyword) {
+
+        return articleMapper.findTotalNum(typeCode,keyword);
     }
 }

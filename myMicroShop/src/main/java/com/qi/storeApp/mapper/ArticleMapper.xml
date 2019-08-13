@@ -16,6 +16,18 @@
                   and title like #{keyword}
               </if>
           </where>
+          limit #{pageModel.startNum},#{pageModel.pageSize}
       </select>
 
+    <select id="findTotalNum" resultType="int">
+        select count(*) from ec_article
+        <where>
+            <if test="typeCode != null">
+                type_code like #{typeCode}
+            </if>
+            <if test="keyword != null">
+                and title like #{keyword}
+            </if>
+        </where>
+    </select>
 </mapper>

@@ -4,12 +4,12 @@
 <!-- 通过动态标签引入公共jsp页面 -->
 <%@ include file="/WEB-INF/jsp/common/header.jsp"%>
 
-<%--<!-- 引入分页标签 -->--%>
-<%--<%@ taglib prefix="fk" uri="/pageTag-j1705"%>--%>
- 
+<!-- 引入分页标签 -->
+<%@ taglib prefix="Zhaoq" uri="/pager/tag" %>
 
  <!-- 引入函数 -->
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
+
 <!DOCTYPE html>
 <html lang="zh_CN">
 <head>
@@ -133,15 +133,8 @@
 				<div class="row">
 					<nav>
 						<ul class="pagination">
-							
-							  
-								<!-- <a href="javascript:goPage(1)">首页</a>
-								 <a href='javascript:goPage(1)'>上一页</a> 
-								 <a href='javascript:goPage(2)'>下一页</a> 
-								 <a href='javascript:goPage(7)'>尾页</a> &nbsp; <span>第&nbsp;
-									1&nbsp;页/共&nbsp; 7页 ，共 52 条数据 </span> -->
-							   <!-- 分页标签中需要  指定请求地址   以及 页码相关信息  -->
-							    <%--<fk:pager submitUrl="index.do" pageModel="${pageModel}"></fk:pager>--%>
+
+							<Zhaoq:pager submitUrl="${pageContext.request.contextPath}/article/index" pageModel="${pageModel}"></Zhaoq:pager>
 							
 						</ul>
 					</nav>

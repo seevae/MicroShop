@@ -3,6 +3,7 @@ package com.qi.storeApp.controller;
 import com.qi.storeApp.po.Article;
 import com.qi.storeApp.po.ArticleType;
 import com.qi.storeApp.service.ArticleServiceI;
+import com.qi.storeApp.until.PageModel;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -19,7 +20,7 @@ public class ArticleController {
     private ArticleServiceI articleService;
 
     @RequestMapping("/index")
-    public String articleIndex(Model model,String typeCode,String keyword){
+    public String articleIndex(Model model, String typeCode, String keyword, PageModel pageModel){
 
         //获取所有的一级物品类型(物品类型)
         List<ArticleType> articleTypes = articleService.findAllFirstArticleType();
@@ -37,8 +38,12 @@ public class ArticleController {
         }
 
         //根据用户指定的商品类型查询数据库,获取相应的商品信息
-        List<Article> articles = articleService.findAllArticle(typeCode == null?null:typeCode+"%",keyword==null ? null: "%"+keyword+"%");
+        List<Article> articles = articleService.findAllArticle(typeCode == null?null:typeCode+"%",keyword==null ? null: "%"+keyword+"%",pageModel);
         model.addAttribute("articles",articles);
+
+        //查询总记录数
+        int totleNum = articleService.findTotalNum(typeCode == null?null:typeCode+"%",keyword==null ? null: "%"+keyword+"%");
+        pageModel.setTotalNum(totleNum);
 
         //自动去jsp包下的articleIndex.jsp中去
         return "articleIndex";
