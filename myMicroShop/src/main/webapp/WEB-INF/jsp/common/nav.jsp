@@ -15,7 +15,7 @@
 					<span class="sr-only">显示导航条</span> <span class="icon-bar"></span> <span
 						class="icon-bar"></span> <span class="icon-bar"></span>
 				</button>
-				<a class="navbar-brand" href="${ctx}/article/index.do">美妆商城</a>
+				<a class="navbar-brand" href="${ctx}/article/index.do">美妆微店</a>
 			</div>
 			<div id="navbar" class="collapse navbar-collapse">
 				<ul class="nav navbar-nav">

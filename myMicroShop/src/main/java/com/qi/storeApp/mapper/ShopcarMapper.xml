@@ -5,15 +5,6 @@
 
 <mapper namespace="com.qi.storeApp.mapper.ShopcarMapper">
 
-
-    <!--&lt;!&ndash; 获取用户的购物详情信息 &ndash;&gt;-->
-    <!--<select id="getAllShopCarByUserId" resultMap="shopCarMapper">-->
-        <!--select * from ec_shopcar where user_id = #{userId}-->
-    <!--</select>-->
-    <!---->
-    <!--<resultMap type="com.longIt.shoppingApp.bean.Shopcar" id="shopCarMapper">-->
-         <!--<association property="article" column="article_id" select="com.longIt.shoppingApp.mapper.ArticleMapper.getArticleById"></association>-->
-    <!--</resultMap>-->
 	<!--获取用户的购物详细信息-->
 	<select id="getAllShopCarByUserId" resultMap="shopCarMapper">
 		select * from ec_shopcar where user_id = #{userId}

@@ -23,7 +23,7 @@ public class OrderController {
     public String orderSubmit(String orderInfo){
 
         orderServiceI.orderSubmit(orderInfo);
-        //重定向至订单列表
+
         return "redirect:/order/showOrder.action";
     }
 

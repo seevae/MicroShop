@@ -22,7 +22,7 @@ public class ShopCarController {
 
     @RequestMapping("/addToCar.action")
     public String addShopCar(HttpSession session, @Param("id")int id, @Param("number")int number){
-        //商品加入购物车成功之后,立马展示购物车中的商品信息
+        //商品加入购物车
         shopCarService.addArticleToShopCar(session,id,number);
 
         return  "redirect:/shopCar/showShopCar.action";

@@ -25,15 +25,14 @@ public class ArticleController {
         //获取所有的一级物品类型(物品类型)
         List<ArticleType> articleTypes = articleService.findAllFirstArticleType();
         model.addAttribute("articleTypes",articleTypes);
-        System.out.println("typeCode:"+typeCode);
 
         //如果typecode不为空,则根据typeCode查询二级物品类型
         if(typeCode!=null && !typeCode.equals("")){
-            //0001
+
             String code = typeCode.substring(0,4);
             //根据一级物品类型获取对应的二级物品类型信息
             List<ArticleType> seArticleTypes = articleService.findAllSecondArticleTypes(code+"%");
-            //将二级物品类型存放到model中
+
             model.addAttribute("secondArticleTypes",seArticleTypes);
         }
 
@@ -45,7 +44,6 @@ public class ArticleController {
         int totleNum = articleService.findTotalNum(typeCode == null?null:typeCode+"%",keyword==null ? null: "%"+keyword+"%");
         pageModel.setTotalNum(totleNum);
 
-        //自动去jsp包下的articleIndex.jsp中去
         return "articleIndex";
     }
 
@@ -56,7 +54,6 @@ public class ArticleController {
         Article article = articleService.getArticleById(id);
         model.addAttribute("article",article);
 
-        // /WEB-INF/jsp/articleDetail.jsp
         return "articleDetail";
     }
 

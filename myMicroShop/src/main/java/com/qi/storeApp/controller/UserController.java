@@ -20,6 +20,7 @@ public class UserController {
     //处理用户登录请求
     @RequestMapping("userLogin")
     public String userLogin(User user, Model model, HttpSession session){
+
         //根据用户输入的账号以及密码获取用户的信息
         User u = userService.findUserByNameAndPass(user);
         if(u == null ){
@@ -30,7 +31,7 @@ public class UserController {
             model.addAttribute("error_message","您尚未激活邮箱,请确认激活");
             return "login";
         }else{
-            //将用户信息存放在session中,直接跳转到首页
+
             session.setAttribute("session_user",u);
             return "redirect:/article/index";
         }
@@ -39,9 +40,9 @@ public class UserController {
     //用户退出(清除掉用户中的session信息
     @RequestMapping("/logout")
     public String logout(HttpSession session){
-        //将用户信息从session中清除
+
         session.removeAttribute("session_user");
-        //退出之后重定向到首页
+
         return "redirect:/article/index";
     }
 
@@ -49,7 +50,7 @@ public class UserController {
     @ResponseBody
     @RequestMapping(value = "/validLoginName",produces = {"allpication/text;charset=utf-8"})
     public String validLoginName(String loginName){
-       //异步校验账号是否存在
+
         String result  = userService.validLoginName(loginName);
         return result;
     }
@@ -65,7 +66,7 @@ public class UserController {
             e.printStackTrace();
             model.addAttribute("message","注册失败");
         }
-        //返回注册页面
+
         return "register";
     }
 

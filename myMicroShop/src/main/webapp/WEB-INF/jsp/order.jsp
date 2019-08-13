@@ -126,7 +126,7 @@
 
 
       <footer>
-        <p>&copy; 版权所有，欢迎借鉴</p>
+        <p>&copy; 您身边的美妆小店</p>
       </footer>
 
     </div><!--/.container-->

@@ -1,12 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 
-
-<!-- 通过动态标签引入公共jsp页面 -->
 <%@ include file="/WEB-INF/jsp/common/header.jsp"%>
 
 
-<!-- 引入格式化标签 -->
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
  
  <!DOCTYPE html>
@@ -17,23 +14,20 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>购物车</title>
 
-	
 
 <script type="text/javascript">
 
-// 为 ’-‘ 半丁事件，用户点击后，将购买的数量减一，但是必须保证购买的数量为大于等于1的正整数 
+// 为 ’-‘ 绑定事件
 function minuFun(articleId){
 	   
 	   var  obj = document.getElementById(articleId);
 
-	   //获取输入款中的值
 	   var num = obj.value;
 	   
 	   if(num>1){
-		   //重新给输入框中的value赋值
+
 		   obj.value = num - 1; 
-		   
-		   //发送请求更新购物车中购买的数量 
+
 		   window.location = "${pageContext.request.contextPath}/shopCar/updateShopcar.action?id="+articleId+"&number="+obj.value;
 		   
 	   }
@@ -43,20 +37,18 @@ function minuFun(articleId){
 }
 
 
-// 为 ’+‘ 半丁事件，用户点击后，将购买的数量减一，但是必须保证购买的数量为大于等于1的正整数 
+// 为 ’+‘ 半丁事件
 function addFun(articleId){
-	   
-	   //获取输入框对应的dom对象
+
 	   var  obj = document.getElementById(articleId);
-	   //获取输入款中的值
-	   var num = parseInt(obj.value);//parseInt:将字符窜转成整数
-	   
-	   //获取库存数
+
+	   var num = parseInt(obj.value);
+
 	   var kucun = parseInt("${article.storage}")
-	   //重新给输入框中的value赋值
+
 		obj.value = (num + 1) > kucun ?  kucun : num + 1; 
 	   
-		//发送请求更新购物车中购买的数量 
+
 		window.location = "${pageContext.request.contextPath}/shopCar/updateShopcar.action?id="+articleId+"&number="+obj.value;
 		   
 }
@@ -255,7 +247,7 @@ function addFun(articleId){
 		
 		<hr>
 		<footer>
-			<p>&copy; 版权所有，欢迎借鉴</p>
+			<p>&copy; 您身边的美妆小店</p>
 		</footer>
 	</div>
 	<!--/.container-->

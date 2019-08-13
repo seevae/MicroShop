@@ -147,7 +147,7 @@
 		<!--/row-->
 		<hr>
 		<footer>
-			<p>&copy;欢迎借鉴</p>
+			<p>&copy;您身边的美妆小店</p>
 		</footer>
 	</div>
 </body>

@@ -18,7 +18,7 @@ public class LoginFilter extends HandlerInterceptorAdapter {
     @Override
     public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) throws Exception {
 
-        //从session中获取用户信息
+
         User user = (User)request.getSession().getAttribute("session_user");
         if(user == null){
             request.setAttribute("error_message","您尚未登陆,请登陆后在进行相关操作");

@@ -94,12 +94,10 @@ public class OrderServiceImpl implements OrderServiceI {
 
     //根据当前用户的id查询该用户的所有订单信息
     public List<Order> getOrderByUserId() {
-        //获取Session
+
         HttpSession session = ((ServletRequestAttributes)RequestContextHolder.getRequestAttributes()).getRequest().getSession();
 
-        //从session中获取用户信息
         int userId = ((User)session.getAttribute("session_user")).getId();
-
 
         return orderMapper.getOrderByUserId(userId);
     }

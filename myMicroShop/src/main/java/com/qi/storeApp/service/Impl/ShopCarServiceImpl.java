@@ -22,6 +22,7 @@ public class ShopCarServiceImpl implements ShopCarServiceI {
 
     //将商品信息加入购物车
     public void addArticleToShopCar(HttpSession session, int id, int number) {
+
         //从session中获取用户信息
         User user = (User)session.getAttribute("session_user");
 

@@ -17,13 +17,12 @@
 </head>
 <body>
 	<!-- 横幅导航条开始 -->
-	
    <jsp:include page="/WEB-INF/jsp/common/nav.jsp"></jsp:include>
     
 	<!-- /.navbar -->
 	<!--  横幅下方的主体开始 -->
 	<div class="container">
-		<!-- 入门-->
+
 		<!-- 登录界面 -->
 		<div class="page-header">
 			<h1>用户登录</h1>&nbsp; <font color="red">${error_message}</font><font color="red">${message}</font>
@@ -92,11 +91,10 @@
 		</div>
 
 		<footer>
-			<p>&copy; 版权所有，欢迎借鉴</p>
+			<p>&copy; 您身边的美妆小店</p>
 		</footer>
 
 	</div>
-	<!--/.container-->
-	<!--  横幅下方的主体结束 -->
+
 </body>
 </html>

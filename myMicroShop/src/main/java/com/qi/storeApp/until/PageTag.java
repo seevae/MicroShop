@@ -75,7 +75,6 @@ public class PageTag extends TagSupport {
             write.flush();
 
         } catch (Exception e) {
-            // TODO: handle exception
             e.printStackTrace();
         }
 
@@ -85,7 +84,6 @@ public class PageTag extends TagSupport {
     @Override
     //遇到结束标签时执行
     public int doEndTag() throws JspException {
-        System.out.println("doEndTag--------------------");
         return super.doEndTag();
     }
 
